@@ -17,11 +17,8 @@ pipeline {
                 }
                 stage('build') {
                         steps {
-                                  echo 'Hello Maven, Executing build
-                                  dockerfile {
-                                                filename 'Dockerfile'
-                                                dir 'build'
-                                  }
+                                 echo 'Executing build process'
+                                app = docker.build("vmadykumar/HappyTrippublic")
                        }                      
                 }
                 stage('sonar analysis') {
