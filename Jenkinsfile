@@ -17,22 +17,5 @@ pipeline {
                                echo 'checkout completed'
                         }
                 }
-                stage('build') {
-                        steps {
-                                script {
-                                        echo 'Executing build process'
-                                        docker.build
-                                }
-                       }                      
-                }
-                stage('Artifactory'){
-                        steps { 
-                                dir('Code') {
-                                        echo 'creating Artifacts'         
-                                        archiveArtifacts 'target/*.war'
-                                        echo 'Artifact created'
-                                }
-                         }
-                 }
         }
 }
