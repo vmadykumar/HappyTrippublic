@@ -12,15 +12,13 @@ pipeline {
                 stage('checkout'){
                         
                         steps {
-                                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vmadykumar/Spring-Boot.git']]])
+                               checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '11bd51bc-7ca4-45ce-a238-d472f2ab4101', url: 'https://github.com/vmadykumar/HappyTrippublic.git']]]) 
                         }
                 }
                 stage('build') {
-                      steps {
-                          dir('Code') {
-                                       echo 'Hello Maven, Executing build'
-                                       bat 'mvn clean package'
-                          } 
+                        steps {
+                                  echo 'Hello Maven, Executing build
+                                  docker build .
                        }                      
                 }
                 stage('sonar analysis') {
