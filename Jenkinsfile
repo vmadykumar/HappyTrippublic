@@ -19,7 +19,7 @@ pipeline {
                         steps {
                                 script {
                                         echo 'Executing build process'
-                                        docker.build("vmadykumar/HappyTrippublic")
+                                        docker.build("Dockerfile")
                                 }
                        }                      
                 }
