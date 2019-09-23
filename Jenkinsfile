@@ -1,5 +1,5 @@
 pipeline {
-        agent any
+        agent {dockerfile true}
         parameters {
                 booleanParam(name: 'Run_SonarAnalysis', defaultValue: false, description: 'Will Run Sonar Code Analysis')
                 booleanParam(name: 'Release', defaultValue: false, description: 'Will Push code to the Server')             
@@ -18,7 +18,10 @@ pipeline {
                 stage('build') {
                         steps {
                                   echo 'Hello Maven, Executing build
-                                  docker build .
+                                  dockerfile {
+                                                filename 'Dockerfile'
+                                                dir 'build'
+                                  }
                        }                      
                 }
                 stage('sonar analysis') {
