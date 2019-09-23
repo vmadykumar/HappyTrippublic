@@ -17,8 +17,10 @@ pipeline {
                 }
                 stage('build') {
                         steps {
-                                 echo 'Executing build process'
-                                 docker.build("vmadykumar/HappyTrippublic")
+                                script {
+                                        echo 'Executing build process'
+                                        docker.build("vmadykumar/HappyTrippublic")
+                                }
                        }                      
                 }
                 stage('Artifactory'){
