@@ -1,6 +1,6 @@
 pipeline {
         agent {
-                UbuntuNode {
+                docker {
                            dockerfile true
                            label 'docker'
                 }
