@@ -1,5 +1,10 @@
 pipeline {
-        agent {UbuntuNode}
+        agent {
+                UbuntuNode {
+                           dockerfile true
+                           label 'docker'
+                }
+              }
         stages {
                 stage('checkout'){
                         
