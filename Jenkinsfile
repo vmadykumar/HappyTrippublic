@@ -1,5 +1,5 @@
 pipeline {
-        agent { label 'docker'}
+        agent { label 'linuxsushil'}
         stages {
                 stage('checkout'){
                         
