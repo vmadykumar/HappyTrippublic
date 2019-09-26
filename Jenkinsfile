@@ -1,5 +1,5 @@
 pipeline {
-        agent 'UbuntuNode'
+        agent { label 'UbuntuNode' }
         stages {
                 stage('checkout'){
                         
