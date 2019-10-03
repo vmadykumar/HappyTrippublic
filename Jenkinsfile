@@ -1,5 +1,5 @@
 pipeline {
-        node (label: 'docker') {
+        agent (label 'docker') 
                 stages {
                          stage('checkout'){
                         
@@ -10,5 +10,5 @@ pipeline {
                                 }
                         }
                 }
-        }
+        
 }
