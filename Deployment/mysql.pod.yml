@@ -1,0 +1,14 @@
+aviVersion: v1
+kind: pod
+metadata: 
+        name: mysql-pod
+        labels:
+                name: mysql-pod
+                app: HappyTrip-App
+
+spec:
+        containers:
+                - name: mysql
+                  image: vmady/happy_trip:happytripdb
+                  ports:
+                          - containerPort: 3306
