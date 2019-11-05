@@ -2,15 +2,16 @@
 From maven:alpine AS builder
 
 #Working Directory
-WORKDIR /usr/app
+WORKDIR /usr/application
 
 # Copying Soure Code to Current directory
 Copy ./Code/ ./
 
-# Building 
+# Dependency 
 Run java -version
 Run mvn --version
 Run mvn clean package
+
 
 #From nginx
 
