@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
         name: mysql-deployment
@@ -13,14 +13,14 @@ spec:
         template:
                  metadata:
                          name: mysql-pod
-                         lables:
+                         labels:
                                 name: mysql-pod
-                                 app: HappyTrip-App
-                         spec:
-                              containers:
-                                        - name: mysql
-                                          image: vmady/happy_trip:happytripdb
-                                          ports:
-                                                  - containerPort: 3306
+                                app: HappyTrip-App
+                 spec:
+                     containers:
+                      - name: mysql
+                        image: vmady/happy_trip:happytripdb
+                        ports:
+                         - containerPort: 3306
 
 

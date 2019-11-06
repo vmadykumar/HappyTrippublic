@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
         name: app-deployment
@@ -7,18 +7,18 @@ metadata:
 spec:
         replicas: 1
         selector:
-                matchLables:
+                matchLabels:
                         name: app-pod
                         app: HappyTrip-App
         template:
                 metadata:
                          name: app-pod
-                         lables:
+                         labels:
                                name: app-pod
                                app: HappyTrip-App
-                         spec:
-                             containers:
-                                       - name: app
-                                         image: vmady/happy_trip:happytripapp 
-                                         ports:
-                                               - containerPort: 90
+                spec:
+                         containers:
+                         - name: app
+                           image: vmady/happy_trip:happytripapp 
+                           ports:
+                           - containerPort: 90
