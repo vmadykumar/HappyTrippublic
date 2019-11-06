@@ -21,4 +21,4 @@ spec:
                          - name: app
                            image: vmady/happy_trip:happytripapp 
                            ports:
-                           - containerPort: 90
+                                   - containerPort: 8080
