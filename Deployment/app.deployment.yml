@@ -10,15 +10,15 @@ spec:
                 matchLables:
                         name: app-pod
                         app: HappyTrip-App
-                template:
-                        metadata:
-                                name: app-pod
-                                lables:
-                                        name: app-pod
-                                        app: HappyTrip-App
-                        spec:
-                                containers:
-                                        - name: app
-                                          image: vmady/happy_trip:happytripapp 
-                                          ports:
-                                                  - containerPort: 90
+        template:
+                metadata:
+                         name: app-pod
+                         lables:
+                               name: app-pod
+                               app: HappyTrip-App
+                         spec:
+                             containers:
+                                       - name: app
+                                         image: vmady/happy_trip:happytripapp 
+                                         ports:
+                                               - containerPort: 90

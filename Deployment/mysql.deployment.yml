@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Deployment
 metadata:
         name: mysql-deployment
@@ -10,14 +10,14 @@ spec:
                 matchLabels:
                         name: mysql-pod
                         app: HappyTrip-App
-                template:
-                        metadata:
+        template:
+                 metadata:
+                         name: mysql-pod
+                         lables:
                                 name: mysql-pod
-                                lables:
-                                        name: mysql-pod
-                                        app: HappyTrip-App
-                        spec:
-                                containers:
+                                 app: HappyTrip-App
+                         spec:
+                              containers:
                                         - name: mysql
                                           image: vmady/happy_trip:happytripdb
                                           ports:
