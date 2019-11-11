@@ -12,7 +12,7 @@ pipeline {
                         stage('build') {
                                 steps {
                                         script { 
-                                                docker.build . 
+                                                docker.build(".") 
                                         }
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
