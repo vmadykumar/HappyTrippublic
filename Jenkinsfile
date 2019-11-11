@@ -2,7 +2,7 @@ pipeline {
         agent {label 'docker'}
         environment {
                 happytripImage = ''
-                registry = "vmady/myrepo"
+                registry = "vmady/happy_trip"
                 registryCredential = 'docker-hub-credentials'
         }
                 stages {
