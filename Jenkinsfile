@@ -1,6 +1,8 @@
 pipeline {
         agent {label 'docker'}
         environment {
+                booleanParam(name: 'Run_SonarAnalysis', defaultValue: false, description: 'Will Run Sonar Code Analysis')
+                booleanParam(name: 'Release', defaultValue: false, description: 'Will Push code to the Server') 
                 happytripImage = ''
                 registry = "vmady/happy_trip"
                 registryCredential = 'docker-hub-credentials'
@@ -20,6 +22,19 @@ pipeline {
                                                         
                                         //} 
                                 }                      
+                        }
+                        stage('sonar analysis') {
+                                        when {
+                                                expression { params.Run_SonarAnalysis == true}
+                                        }
+                                        steps { 
+                                                dir('Code') {
+                                                        echo 'Executing sonar Analysis'        
+                                                        withSonarQubeEnv('sonar server') {
+                                                                bat 'mvn sonar:sonar'  
+                                                        }
+                                                }
+                                        }
                         }
                         stage('Deploy Image') {
                                                 steps{
@@ -43,6 +58,17 @@ pipeline {
                                                                 echo 'Artifact created'
                                                 }
                                         }
+                        }
+                        stage('Release'){
+                                        agent any
+                                        when {
+                                                expression { params.Release == true }
+                                        }
+                                steps {
+                                        echo 'Starting Release'
+                                        //deploy adapters: [tomcat7(credentialsId: '51d79b50-5fd8-4444-91eb-c6ead7dc4151', path: '', url: 'http://172.30.13.143:8081')], contextPath: '/HappyTrip', war: 'Code/target/*.war'
+                                        echo 'Release Completed'
+                                }
                         }
                 }
         
