@@ -4,7 +4,7 @@ pipeline {
                         stage('build') {
                                 steps {
                                         script { 
-                                                docker.build("test-image") 
+                                                def testImage = docker.build("test-image") 
                                         }
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
