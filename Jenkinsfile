@@ -12,7 +12,7 @@ pipeline {
                         stage('build') {
                                 steps {
                                         script { 
-                                                docker.build . + ":$BUILD_NUMBER" 
+                                                docker.build . 
                                         }
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
