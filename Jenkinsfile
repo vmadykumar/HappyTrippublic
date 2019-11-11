@@ -3,7 +3,8 @@ pipeline {
                 stages {
                         stage('build') {
                                 steps {
-                                        sh "docker build -t happytrip:${BUILD_NUMBER} ."
+                                        sh "docker build ."
+                                        //sh "docker build -t happytrip:${BUILD_NUMBER} ."
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
                                             //            sh 'mvn clean package -Dv=${BUILD_NUMBER}'
