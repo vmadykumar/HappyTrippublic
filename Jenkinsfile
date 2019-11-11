@@ -1,10 +1,15 @@
 pipeline {
         agent {label 'docker'}
+        environment {
+                happytripImage = ''
+                registry = "vmady/myrepo"
+                registryCredential = 'docker-hub-credentials'
+        }
                 stages {
                         stage('build') {
                                 steps {
                                         //sh "docker build ."
-                                         def happytripapp = sh "docker build -t vmady/myrepo:happytrip:${BUILD_NUMBER} ."
+                                          happytripImage = sh "docker build -t happytrip:${BUILD_NUMBER} ."
                                         //sh "docker push "
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
