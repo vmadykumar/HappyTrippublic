@@ -11,7 +11,7 @@ pipeline {
                         }
                         stage('build') {
                                 steps {
-                                        script {readFileFromWorkspace('Dockerfile')}
+                                        script { docker build .}
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
                                             //            sh 'mvn clean package -Dv=${BUILD_NUMBER}'
