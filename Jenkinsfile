@@ -3,6 +3,8 @@ pipeline {
         parameters  {
                 booleanParam(name: 'Run_SonarAnalysis', defaultValue: false, description: 'Will Run Sonar Code Analysis')
                 booleanParam(name: 'Release', defaultValue: false, description: 'Will Push code to the Server') 
+        }
+        environment {
                 happytripImage = ''
                 registry = "vmady/happy_trip"
                 registryCredential = 'docker-hub-credentials'
