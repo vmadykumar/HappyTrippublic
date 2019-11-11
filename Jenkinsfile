@@ -13,7 +13,7 @@ pipeline {
                                 steps {
                                         dir('Code') {
                                                         echo 'Hello Maven, Executing build'
-                                                        bat 'mvn clean package -Dbuild.number=${BUILD_NUMBER}'
+                                                        sh 'mvn clean package -Dbuild.number=${BUILD_NUMBER}'
                                                         
                                         } 
                                 }                      
