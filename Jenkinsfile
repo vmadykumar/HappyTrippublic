@@ -9,6 +9,24 @@ pipeline {
                                         echo 'checkout completed'
                                 }
                         }
+                        stage('build') {
+                                steps {
+                                        dir('Code') {
+                                                        echo 'Hello Maven, Executing build'
+                                                        bat 'mvn clean package -Dbuild.number=${BUILD_NUMBER}'
+                                                        
+                                        } 
+                                }                      
+                        }
+                        stage('Artifactory'){
+                                        steps { 
+                                                dir('Code') {
+                                                                echo 'creating Artifacts'         
+                                                                archiveArtifacts 'target/*.war'
+                                                                echo 'Artifact created'
+                                                }
+                                        }
+                        }
                 }
         
 }
