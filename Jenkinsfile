@@ -33,7 +33,7 @@ pipeline {
                                                 dir('Code') {
                                                         echo 'Executing sonar Analysis'        
                                                         withSonarQubeEnv('sonar server') {
-                                                                bat 'mvn sonar:sonar'  
+                                                                sh 'mvn sonar:sonar'  
                                                         }
                                                 }
                                         }
