@@ -3,8 +3,9 @@ pipeline {
                 stages {
                         stage('build') {
                                 steps {
-                                        sh "docker build ."
-                                        //sh "docker build -t happytrip:${BUILD_NUMBER} ."
+                                        //sh "docker build ."
+                                        def happytripapp = sh "docker build -t vmady/myrepo:happytrip:${BUILD_NUMBER} ."
+                                        //sh "docker push "
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
                                             //            sh 'mvn clean package -Dv=${BUILD_NUMBER}'
