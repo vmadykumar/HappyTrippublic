@@ -8,8 +8,11 @@ pipeline {
                 stages {
                         stage('build') {
                                 steps {
+                                        script {
+                                                happytripImage = docker.build registry + "happytrip:$BUILD_NUMBER"
+                                        }
                                         //sh "docker build ."
-                                          happytripImage = sh "docker build -t happytrip:${BUILD_NUMBER} ."
+                                          //happytripImage = sh "docker build -t happytrip:${BUILD_NUMBER} ."
                                         //sh "docker push "
                                         //dir('Code') {
                                           //              echo 'Hello Maven, Executing build'
