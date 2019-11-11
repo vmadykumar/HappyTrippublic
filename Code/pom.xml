@@ -6,7 +6,7 @@
 	<artifactId>happytrip</artifactId>
 	<name>HappyTrip</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT.${v}</version>
+	<version>BUILD-SNAPSHOT-1.0.${v}</version>
 	<properties>
 		<java-version>1.7</java-version>
 		<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
