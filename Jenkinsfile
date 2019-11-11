@@ -11,11 +11,12 @@ pipeline {
                         }
                         stage('build') {
                                 steps {
-                                        dir('Code') {
-                                                        echo 'Hello Maven, Executing build'
-                                                        sh 'mvn clean package -Dv=${BUILD_NUMBER}'
+                                        script (readFileFromWorkspace('Dockerfile'))
+                                        //dir('Code') {
+                                          //              echo 'Hello Maven, Executing build'
+                                            //            sh 'mvn clean package -Dv=${BUILD_NUMBER}'
                                                         
-                                        } 
+                                        //} 
                                 }                      
                         }
                         stage('Artifactory'){
