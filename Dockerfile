@@ -19,4 +19,4 @@ Run mvn clean package
 #Copy --from=builder  /target/happytrip-1.0.0-BUILD-SNAPSHOT.war /Public/
 FROM andreptb/tomcat:7-jdk7
 
-COPY --from=builder usr/application/target/happytrip-1.0.0-BUILD-SNAPSHOT.war /usr/local/tomcat/webapps/happytrip.war
+COPY --from=builder usr/application/target/happytrip-*.war /usr/local/tomcat/webapps/happytrip.war
