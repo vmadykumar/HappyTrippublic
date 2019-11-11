@@ -9,7 +9,7 @@ pipeline {
                         stage('build') {
                                 steps {
                                         script {
-                                                happytripImage = docker.build registry + "happytrip:$BUILD_NUMBER"
+                                                happytripImage = docker.build registry + ":$BUILD_NUMBER"
                                         }
                                         //sh "docker build ."
                                           //happytripImage = sh "docker build -t happytrip:${BUILD_NUMBER} ."
@@ -20,6 +20,20 @@ pipeline {
                                                         
                                         //} 
                                 }                      
+                        }
+                        stage('Deploy Image') {
+                                                steps{
+                                                        script {
+                                                                docker.withRegistry( '', registryCredential ) {
+                                                                        happytripImage.push()
+                                                                }
+                                                        }
+                                                }
+                         }
+                        stage('Remove Unused docker image') {
+                                                steps{
+                                                        sh "docker rmi $registry:$BUILD_NUMBER"
+                                                }
                         }
                         stage('Artifactory'){
                                         steps { 
